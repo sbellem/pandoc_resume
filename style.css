@@ -1,0 +1,86 @@
+<style type="text/css">
+/*
+ * Copyright 2015 Sylvain Bellemare
+ * Copyright 2013 Christophe-Marie Duquesne
+ *
+ * CSS for making a resume with pandoc. Inspired by moderncv.
+ *
+ * This CSS is based on Christophe-Marie Duquesne's original CSS.
+ * It is delivered to you under the CC BY-SA 3.0 License.
+ * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+ */
+
+/* Whole document */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 800px;
+    margin: auto;
+    background: #002b36;
+    padding: 10px 10px 10px 10px;
+    color: #2aa198;
+}
+
+/* Title of the resume */
+h1 {
+    font-size: 55px;
+    color: #859900;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Titles of categories */
+h2 {
+    color: #268bd2;
+    margin-top: 40px;
+}
+h3 {
+    color: #268bd2;
+    /*margin-top: 30px;*/
+    margin-bottom: 5px;
+}
+h4 {
+    color: #268bd2;
+    /*margin-top: 30px;*/
+    margin-bottom: 5px;
+}
+
+/* Definitions */
+dt {
+    float: left;
+    clear: left;
+    width: 13%;
+    font-weight: bold;
+    color: #cb4b16;
+}
+dd {
+    margin-left: 17%;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+/* Blockquotes */
+blockquote {
+    text-align: center
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #b58900;
+    font-weight: bold;
+}
+
+/* Horizontal separators */
+hr {
+    color: #586e75;
+    background-color: #586e75;
+    height: 1px;
+    border: 0 none;
+}
+
+table {
+    width: 100%;
+}
+</style>

@@ -1,0 +1,121 @@
+% Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+% Copyright 2014 Mark Szepieniec <http://github.com/mszep>
+% Copyright 2015 Sylvain Bellemare <https://github.com/sbellem>
+% 
+% ConText style for making a resume with pandoc. Inspired by moderncv.
+% 
+% Based on Christophe-Marie Duquesne's & Mark Szepieniec's originals.
+% Delivered to you under the CC BY-SA 3.0 License.
+% https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+
+\startmode[*mkii]
+  \enableregime[utf-8]  
+  \setupcolors[state=start]
+\stopmode
+$if(mainlang)$
+\mainlanguage[$mainlang$]
+$endif$
+
+\setupcolor[hex]
+\definecolor[base03][h=002b36] 
+\definecolor[base02][h=073642]
+\definecolor[base01][h=586e75]
+\definecolor[base00][h=657b83]
+\definecolor[base0][h=839496] 
+\definecolor[base1][h=93a1a1]
+\definecolor[base2][h=eee8d5]
+\definecolor[base3][h=fdf6e3]
+\definecolor[yellow][h=b58900]
+\definecolor[orange][h=cb4b16]
+\definecolor[red][h=dc322f]
+\definecolor[magenta][h=d33682]
+\definecolor[violet][h=6c71c4]
+\definecolor[blue][h=268bd2]
+\definecolor[cyan][h=2aa198]
+\definecolor[green][h=859900]
+
+\setupbackgrounds[page][background=color, backgroundcolor=base03]
+
+% Enable hyperlinks
+\setupinteraction[state=start, color=green]
+
+\setuppapersize[$if(papersize)$$papersize$$else$letter$endif$]
+
+\setuplayout[width=middle, height=middle, 
+             backspace=20mm, cutspace=0mm,
+             topspace=10mm, bottomspace=20mm,
+             header=0mm, footer=0mm]
+
+\setupbodyfont[11pt, helvetica]
+
+\setupwhitespace[medium]
+
+\setuphead[chapter][style=\tfd]
+\setuphead[section][style=\tfd\bf, color=green]
+\setuphead[subsection][style=\tfb\bf, color=blue, align=right]
+\setuphead[subsubsection][style=\bf]
+
+$if(number-sections)$
+$else$
+\setuphead[chapter, section, subsection, subsubsection][number=no]
+$endif$
+
+
+\definedescription[description][headstyle=bold,
+				style=normal,
+				location=hanging,
+   			        width=18mm,
+				distance=14mm,
+				margin=0cm,
+				headcolor=orange]
+
+\setupitemize[autointro, packed]    % prevent orphan list intro
+\setupitemize[indentnext=no]
+
+\setupfloat[figure][default={here,nonumber}]
+\setupfloat[table][default={here,nonumber}]
+
+\setuptables[textwidth=max, HL=none]
+
+\setupthinrules[width=15em, color=cyan]
+
+\setupdelimitedtext[blockquote][before={\setupalign[middle]}, indentnext=no]
+
+$if(toc)$
+\setupcombinedlist[content][list={$placelist$}]
+
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\starttext
+\startcolor[cyan]
+$if(title)$
+\startalignment[center]
+  \blank[2*big]
+  {\tfd $title$}
+$if(author)$
+  \blank[3*medium]
+  {\tfa $for(author)$$author$$sep$\crlf $endfor$}
+$endif$
+$if(date)$
+  \blank[2*medium]
+  {\tfa $date$}
+$endif$
+  \blank[3*medium]
+\stopalignment
+$endif$
+$for(include-before)$
+$include-before$
+$endfor$
+$if(toc)$
+\placecontent
+$endif$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\stoptext
